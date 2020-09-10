@@ -18,4 +18,4 @@ Messages.belongsTo(User, {
 });
 
 
-mondule.exports = { User, Tasks, Messages, Calendar, Response };
+module.exports = { User, Tasks, Messages, Calendar, Response };
