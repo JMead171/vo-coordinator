@@ -25,7 +25,8 @@ app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.engine('handlebars',   exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 // turn on routes
 app.use(routes);
 
