@@ -3,6 +3,7 @@ const Tasks = require('./Tasks');
 const Messages = require('./Messages');
 const Calendar = require('./Calendar');
 const Responses = require('./Responses');
+const Attendees = require('./Attendees');
 
 //associations go here
 User.hasMany(Messages); 
@@ -30,5 +31,15 @@ Responses.belongsTo(Messages, {
     foreignKeyConstraint: false
 });
 
+Calendar.hasMany(Attendees, {
+    onDelete: 'CASCADE',
+    constraints: false,
+    foreignKeyConstraint: false
+})
+Attendees.belongsTo(Calendar);
 
-module.exports = { User, Tasks, Messages, Calendar, Responses };
+
+
+
+
+module.exports = { User, Tasks, Messages, Calendar, Responses, Attendees };

@@ -39,26 +39,43 @@ router.get('/:id', (req, res) => {
 });
 
 
-router.post('/', (req, res) => {
-    Calendar.create({
-        meeting: req.body.meeting,
-        owner: req.body.owner,
-        attendees: req.body.attendees
+router.post('/', async (req, res) => {
+    /* req.body should look like
+        meeting: 'description/title of meeting',
+        owner: 1, //owner id
+        date: date object,
+        attendees: [2, 3, 4] //array of integers
+     */
 
-        // Array 
-        // if (req.body.attendees.length > 1) {
-        //     const attendeesMeetingArr = req.body.attendees.map((attendees) => {
-        //     attendees: attendeesMeetingArr
-        //     });
-        // } else {
-        //     attendees: req.body.attendees
-        // };      
-    })
-        .then(dbPostData => res.json(dbPostData))
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    try{
+        const results = await Calendar.create(req.body);
+        if(req.body.attendees.length) {
+            const meetingAttendees = req.body.attendees.map((attendee) => {
+                return {
+                    user_id: attendee,
+                    meeting_id: results.id
+                };
+            });
+            return Attendees.bulkCreate(meetingAttendees);
+        }
+        res.status(200).json(results);
+    }catch(err){
+        console.log(err);
+        res.status(400).json(err);
+    }
+
+    // Calendar.create({
+    //     meeting: req.body.meeting,
+    //     owner: req.body.owner,
+    //     date: req.body.date
+
+    
+    // })
+    //     .then(dbPostData => res.json(dbPostData))
+    //     .catch(err => {
+    //         console.log(err);
+    //         res.status(500).json(err);
+    //     });
 });
 
 
