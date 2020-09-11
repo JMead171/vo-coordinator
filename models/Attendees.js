@@ -1,11 +1,11 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Calendar extends Model{
+class Attendees extends Model {
 
 }
 
-Calendar.init(
+Attendees.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -13,30 +13,29 @@ Calendar.init(
             primaryKey: true,
             autoIncrement: true
         },
-        meeting: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        owner: {
+        user_id: {
             type: DataTypes.INTEGER,
-            references: 
-            {
+            allowNull: false,
+            references: {
                 model: 'user',
                 key: 'id'
             }
         },
-        date: {
-            type: DataTypes.DATE,
+        calendar_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
-            defaultValue: Sequelize.fn('NOW')
+            references: {
+                model: 'calendar',
+                key: 'id'
+            }
         }
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'calendar'
-      }
+        modelName: 'attendees'
+    }
 );
 
-module.exports = Calendar;
+module.exports = Attendees;
