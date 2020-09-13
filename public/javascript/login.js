@@ -3,7 +3,7 @@ async function loginFormHandler(event) {
 
     const username = document.querySelector('#user-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
-    //console.log("login  1: ", username, password);
+    console.log("login  1: ", username, password);
 
     if (username && password) {
       //console.log("login: ", username, password);

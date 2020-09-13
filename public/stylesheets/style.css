@@ -60,6 +60,21 @@
     flex-wrap: wrap;
   }
 
+  .task-list, .message-list {
+    margin: 5px;
+  }
+
+.list-group input {
+  margin: 5px;
+}
+.message-list li:hover {
+  background-color: #fb9039;
+}
+
+#calendar-body td:hover {
+  background-color: #fb9039;
+}
+
   footer {
     border-top: 1px solid #ccc;
     display: flex;

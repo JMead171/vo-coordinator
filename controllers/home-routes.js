@@ -4,7 +4,8 @@ const { User } = require('../models');
 
 router.get('/', (req, res) => {
    console.log("home route is executed......................................");
-   res.render('login');
+   // res.render('login');
+   res.render('dashboard');
 });
 
 module.exports = router;

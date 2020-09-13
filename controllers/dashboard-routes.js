@@ -8,7 +8,7 @@ router.get('/dashboard', (req, res) => {
       id: req.session.user_id
     },
     //attributes: ['id', 'title', 'created_at',],
-    include: [{ model: User, Tasks, Messages, Responses, Calendar, Attendees }]
+    include: [{ model: Tasks, Messages, Responses, Calendar, Attendees }]
   })
     .then(dbData => {
       console.log("here" );
