@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
     include: [{ model: Tasks, Messages, Responses, Calendar, Attendees }]
   })
     .then(dbData => {
-      console.log("here" );
       // serialize data before passing to template
       const vocData = dbData.map(data => data.get({ plain: true }));
       console.log("Data: ", vocData);
