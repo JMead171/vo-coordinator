@@ -5,6 +5,7 @@ async function loginFormHandler(event) {
   const password = document.querySelector('#password-login').value.trim();
   const notFound = true
 
+
   if (username && password) {
     const response = await fetch('/api/users/login', {
       method: 'post',
@@ -23,9 +24,11 @@ async function loginFormHandler(event) {
 }
 
 
+
 function newUserHandler(event) {
   document.location.replace('/newuser');
 }
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
 document.querySelector('.new-user').addEventListener('submit', newUserHandler);
+
