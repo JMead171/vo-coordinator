@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Tasks, Messages, Responses, Calendar, Attendees } = require("../models");
 
-router.get('/dashboard', (req, res) => {
+router.get('/', (req, res) => {
   User.findAll({
     where: {
       id: req.session.user_id
@@ -11,7 +11,6 @@ router.get('/dashboard', (req, res) => {
     include: [{ model: Tasks, Messages, Responses, Calendar, Attendees }]
   })
     .then(dbData => {
-      console.log("here" );
       // serialize data before passing to template
       const vocData = dbData.map(data => data.get({ plain: true }));
       console.log("Data: ", vocData);

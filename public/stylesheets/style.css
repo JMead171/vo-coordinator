@@ -54,6 +54,23 @@
     text-align: center;
   }
 
+  .login-form button:hover {
+    background-color: var(--secondary);
+  }
+
+  .new-user {
+    font-size: 20px;
+    margin: 15px 0;
+    background-color: var(--tertiary);
+    color: var(--quaternary);
+    width: 100px;
+    text-align: center;
+  }
+
+  .new-user:hover {
+    background-color: var(--quaternary);
+  }
+
   #user-login-fields {
     display: flex;
     flex-direction: row;
@@ -64,16 +81,16 @@
     margin: 5px;
   }
 
-.list-group input {
-  margin: 5px;
-}
-.message-list li:hover {
-  background-color: #fb9039;
-}
+  .list-group input {
+    margin: 5px;
+  }
+  .message-list li:hover {
+    background-color: #fb9039;
+  }
 
-#calendar-body td:hover {
-  background-color: #fb9039;
-}
+  #calendar-body td:hover {
+    background-color: #fb9039;
+  }
 
   footer {
     border-top: 1px solid #ccc;
