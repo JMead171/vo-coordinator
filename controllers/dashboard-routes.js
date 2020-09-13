@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { User, Tasks, Messages, Responses, Calendar, Attendees } = require("../models");
 
-router.get('/dashboard', (req, res) => {
+router.get('/', (req, res) => {
   User.findAll({
     where: {
       id: req.session.user_id
