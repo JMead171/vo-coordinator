@@ -17,6 +17,11 @@
     <div class="wrapper">
         <header>
             <h1>Virtual Office Coordinator</h1>
+             <nav>
+            {{#if loggedIn}}
+            <a href="/" id="logout">Logout</a>
+            {{/if}}
+            </nav>
         </header>
 
         <main>
