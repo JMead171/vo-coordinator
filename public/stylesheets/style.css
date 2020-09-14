@@ -43,7 +43,7 @@
     clear: left;
     width: 250px;
     font-size: 24px;
-    padding: 15% 45%;
+    padding: 15% 35%;
     margin: 10px;
   }
 
@@ -116,9 +116,10 @@
   nav a {
     color: var(--secondary);
     background-color: var(--primary);
-    margin-left: auto;
+    position: absolute;
     text-decoration: none;
-    display: flex;
+    right: 15%;
+    top: 20px;
     font-size: 20px;
   }
 
