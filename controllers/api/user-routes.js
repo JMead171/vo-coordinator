@@ -38,6 +38,7 @@ router.get('/:id', (req, res) => {
 
 // POST /api/users
 router.post('/', (req, res) => {
+  console.log("Add new user.........................................................................");
   User.create({
     first_name: req.body.first_name,
     last_name: req.body.last_name,

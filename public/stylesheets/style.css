@@ -58,6 +58,27 @@
     background-color: var(--secondary);
   }
 
+  .newuser-login {
+    display: block-inline;
+    clear: left;
+    width: 300px;
+    font-size: 20px;
+    padding: 5% 35%;
+    margin: 15px 0;
+  }
+
+  .newUser-login button {
+    font-size: 20px;
+    margin: 15px 0;
+    width: 300px;
+    text-align: center;
+  }
+
+  .newUser-login button:hover {
+    background-color: var(--secondary);
+  }
+
+
   .new-user {
     font-size: 20px;
     margin: 15px 0;
@@ -76,6 +97,35 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
+
+  #newUser-login-fields {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .logout {
+    color: var(--secondary);
+    background-color: var(--primary);
+    justify-content: space-between;
+    text-decoration: none;
+    display: inline;
+    font-size: 20px;
+  }
+
+  nav a {
+    color: var(--secondary);
+    background-color: var(--primary);
+    margin-left: auto;
+    text-decoration: none;
+    display: flex;
+    font-size: 20px;
+  }
+
+  .logout:hover {
+    color: var(--tertiary);
+  }
+
 
   .task-list, .message-list {
     margin: 5px;
