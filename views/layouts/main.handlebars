@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <title>Virtual Office Coordinator</title>
 
@@ -14,24 +14,38 @@
 
 <body>
 
-    <div class="wrapper">
-        <header>
-            <h1>Virtual Office Coordinator</h1>
-             <nav>
-            {{#if loggedIn}}
-            <a href="/" id="logout">Logout</a>
-            {{/if}}
-            </nav>
-        </header>
+    <!-- Navigation-->
+    <header>
+        <h1>
+            <a href="/"><img src="./assets/images/logo.png" style="width: 380px;height:100px; padding: 7px 55px;"></a>
+        </h1>
 
-        <main>
-            {{{ body }}}
-        </main>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li>
+                    <a href="#contact-us">Contact Us</a>
+                </li>
+                <li>
+                    <a href="#log-in">Login</a>
+                </li>
+                <li>
+                    <a href="#request-demo">Request Demo</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-        <footer>
-            VOC, Inc.
-        </footer>
-    </div>
+    <main>
+        {{{ body }}}
+    </main>
+
+    <footer>
+        <h2> &copy; 2020 Virtual Office Coordinator, Inc</h2>
+    </footer>
+
 
 </body>
 
