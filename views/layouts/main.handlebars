@@ -22,15 +22,22 @@
 
         <nav>
             <ul>
-                <li>
-                    <a href="#home">Home</a>
-                </li>
+
                 <li>
                     <a href="#contact-us">Contact Us</a>
                 </li>
+                {{#if loggedIn}}
                 <li>
-                    <a href="#log-in">Login</a>
+                    <a href="/dashboard">Dashboard</a>
                 </li>
+                <li>
+                    <a href="/logout">Logout</a>
+                </li>
+                {{else}}
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+                {{/if}}
                 <li>
                     <a href="#request-demo">Request Demo</a>
                 </li>
@@ -45,7 +52,9 @@
     <footer>
         <h2> &copy; 2020 Virtual Office Coordinator, Inc</h2>
     </footer>
-
+    {{#if loggedIn}}
+    <scripit src="/javascript/logout.js"></scripit>
+    {{/if}}
 
 </body>
 
