@@ -31,7 +31,7 @@
                     <a href="/dashboard">Dashboard</a>
                 </li>
                 <li>
-                    <a href="/logout">Logout</a>
+                    <button class="btn" id="logout" type="button">Logout</button>
                 </li>
                 {{else}}
                 <li>
@@ -53,7 +53,7 @@
         <h2> &copy; 2020 Virtual Office Coordinator, Inc</h2>
     </footer>
     {{#if loggedIn}}
-    <scripit src="/javascript/logout.js"></scripit>
+    <script src="/javascript/logout.js"></script>
     {{/if}}
 
 </body>
