@@ -26,5 +26,5 @@ function newUserHandler(event) {
   document.location.replace('/newuser');
 }
 
-document.querySelector('.newUser').addEventListener('submit', newUserHandler);
+document.querySelector('.newUser').addEventListener('click', newUserHandler);
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
