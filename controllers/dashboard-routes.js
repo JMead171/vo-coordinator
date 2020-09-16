@@ -3,6 +3,7 @@ const sequelize = require('../config/connection');
 const { User, Tasks, Messages, Responses, Calendar, Attendees } = require("../models");
 
 router.get('/', (req, res) => {
+  //we wrap all this with in if statement ifManager
   User.findAll({
     where: {
       id: req.session.user_id
@@ -19,6 +20,7 @@ router.get('/', (req, res) => {
       console.log("Data: ", taskData);
       console.log("Task data: ", taskData[0].content);
       res.render('dashboard', { userData, taskData, loggedIn: true });
+
     })
     .catch(err => {
       console.log(err);
