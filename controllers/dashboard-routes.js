@@ -8,21 +8,24 @@ router.get('/', (req, res) => {
     where: {
       id: req.session.user_id
     },
-    //attributes: ['id', 'title', 'created_at',],
-    include: [{model: Messages}] //Responses, Calendar, Attendees ]
+    include: [
+      {
+        model: Tasks,
+        attributes: ['id', 'content', 'isComplete', 'user_id'],
+      }]
   })
     .then(dbData => {
-      // serialize data before passing to template
-      const vocData = dbData.map(data => data.get({ plain: true }));
-      console.log("Data: ", vocData);
-      console.table(vocData[0].tasks);
-      res.render('dashboard', { vocData, loggedIn: true });
+      const userData = dbData.map(data => data.get({ plain: true }));
+      const taskData = userData[0].tasks
+      console.log("Data: ", taskData);
+      console.log("Task data: ", taskData[0].content);
+      res.render('dashboard', { userData, taskData, loggedIn: true });
+
     })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
 });
-
 
 module.exports = router;
