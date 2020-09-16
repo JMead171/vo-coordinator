@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     Messages.findAll({
         order: [['created_at', 'DESC']],
         // attributes: ['id', 'content', 'isComplete', 'user_id', 'created_at'],
-        include: [{ model: User, Responses }]
+        //include: [{ model: User, Responses }]
     })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {
