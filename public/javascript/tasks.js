@@ -1,8 +1,9 @@
 async function addTaskHandler(event) {
     event.preventDefault();
 
-    const content = document.querySelector('#new-task').value.trim();
-    const user_id = req.session.username
+    console.log("Here in task.js...............................................................");
+    const content = document.querySelector('#newTask').value.trim();
+    const userid = req.session.user_id
     const isComplete = false;
 
     if (content) {
@@ -11,16 +12,17 @@ async function addTaskHandler(event) {
             body: JSON.stringify({
                 content,
                 isComplete,
-                user_id              
+                userid
             }),
             headers: { 'Content-Type': 'application/json' }
         });
+        console.log("did i make it here?...............................................................");
         if (response.ok) {
-            document.location.replace('/dashboard');
+            //document.location.replace('/dashboard');
         } else {
-            document.location.replace('/dashboard');
+            // document.location.replace('/dashboard');
         }
     }
 }
 
-document.querySelector('.add-task').addEventListener('submit', addTaskHandler);
+document.querySelector('.add-task').addEventListener('click', addTaskHandler);
