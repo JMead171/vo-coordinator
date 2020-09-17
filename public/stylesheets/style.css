@@ -204,6 +204,7 @@ header h1 {
     background-color: var(--quaternary);
   }
 
+  /*
   #user-login-fields {
     display: flex;
     flex-direction: row;
@@ -214,7 +215,7 @@ header h1 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-  }
+  }*/
 
   .logout {
     color: var(--secondary);
@@ -296,7 +297,6 @@ footer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    position: fixed;
     bottom: 0;
 }
 
@@ -319,3 +319,4 @@ footer h2 {
   top: 1;
   left: 0;
 }
+
