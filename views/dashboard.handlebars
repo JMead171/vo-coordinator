@@ -3,9 +3,16 @@
 
     <div class="col">
         <h3>Task List</h3>
+
+        
+        {{#if taskData.length}}
+        <p> Check box if complete</p>
         <ul class="list-group task-list">
-            {{> tasks taskData}}
+            {{#each taskData as |task|}}
+            {{> tasks task}}
+            {{/each}}
         </ul>
+        {{/if}}
         <label for="new-task">Enter a task:</label>
         <input type="text" id="newTask" />
         <button class="add-task" type="submit">Add Task</button>
@@ -109,12 +116,13 @@
 
     <div class="col message-list">
         <h3>Messages</h3>
+        {{#if messageData.length}}
         <ul class="list-group">
-            <li class="list-group-item">Joe</li>
-            <li class="list-group-item">Byran</li>
-            <li class="list-group-item">Kemar</li>
-            <li class="list-group-item">Alex</li>
+            {{#each messageData as |message|}}
+            {{> messages message}}
+            {{/each}}
         </ul>
+        {{/if}}
         <label for="enetr-message">Enter your message:</label>
         <textarea name="message-body"></textarea>
         <button type="submit">Send message</button>
