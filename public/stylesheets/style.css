@@ -289,6 +289,10 @@ header h1 {
     flex-wrap: wrap;
 }
 
+.enter-msg {
+  width: 100%;
+}
+
 footer {
     background: black;
     width: 100%;

@@ -4,7 +4,7 @@
     <div class="col">
         <h3>Task List</h3>
 
-        
+
         {{#if taskData.length}}
         <p> Check box if complete</p>
         <ul class="list-group task-list">
@@ -47,15 +47,19 @@
 
         <div class="form-inline">
 
-           <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-left-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+            <button class="btn btn-outline-primary col-sm-6" id="previous" onclick="previous()">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-left-fill" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M3.86 8.753l5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
                 </svg>
             </button>
 
             <button class="btn btn-outline-primary col-sm-6" id="next" onclick="next()">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-right-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-right-fill" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12.14 8.753l-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
                 </svg>
             </button>
         </div>
@@ -121,9 +125,18 @@
                 <option value=2029>2029</option>
                 <option value=2030>2030</option>
             </select></form>
+
+        <div>
+            <br>
+            <h6>Upcoming Meetings</h6>
+            <p>9/21/2020 Meeting</p>
+            <p>9/25/2020 Meeting</p>
+            <p>10/5/2020 Meeting</p>
+        </div>
     </div>
 
     <div class="col message-list">
+        <div>
         <h3><a href="/message-details">Messages</a> </h3>
         {{#if messageData.length}}
         <ul class="list-group" id="messages">
@@ -132,6 +145,26 @@
             {{/each}}
         </ul>
         {{/if}}
+        </div>
+
+        <div>
+        <form name="msgForm">
+            <br>
+            <select id="dropDown" name="dropDown">
+                <option>Send Message to...</option>
+                {{#each allUsers as |dropdown|}}
+                {{> msgdropdown dropdown}}
+                {{/each}}
+            </select>
+        </form>
+        </div>
+        <br>
+        <div id="msg-form">
+            {{!-- <p id="userID" style="display: none;">{{user_id}}</p> --}}
+            <label class="enter-msg" for="enter-msg">Enter your message:</label>
+            <textarea class ="enter-msg" name="msg-body"></textarea>
+            <button type="submit">Send message</button>
+        </div>
     </div>
 
 </div>
@@ -150,7 +183,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
     integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
     crossorigin="anonymous"></script>
-    
-    {{#if messageData.length}}
-    <script src="/javascript/dashboard.js"></script>
-    {{/if}}
+
+{{#if messageData.length}}
+<script src="/javascript/dashboard.js"></script>
+{{/if}}

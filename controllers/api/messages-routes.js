@@ -40,9 +40,10 @@ router.get('/:id', (req, res) => {
 
 
 router.post('/', (req, res) => {
+    console.log("C = ", req.body.content, "S = ", req.session.user_id, "R = ", req.body.receiver_id)
     Messages.create({
         content: req.body.content,
-        sender_id: req.body.sender_id,
+        sender_id: req.session.user_id,
         receiver_id: req.body.receiver_id
     })
         .then(dbPostData => res.json(dbPostData))
@@ -56,9 +57,9 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     Messages.update(
         {
-        content: req.body.content,
-        sender_id: req.body.sender_id,
-        receiver_id: req.body.receiver_id
+            content: req.body.content,
+            sender_id: req.body.sender_id,
+            receiver_id: req.body.receiver_id
         },
         {
             where: {

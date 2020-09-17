@@ -1,5 +1,13 @@
   {{#if isComplete}}
-    <li class="list-group-item" style="text-decoration: line-through;"><input type="checkbox" id="task">{{content}}<span id="idspan" style="display: none;">{{id}}</span></li>
+    <li class="list-group-item" style="text-decoration: line-through;"><input type="checkbox" id="task">
+    {{content}}
+    <span id="idspan" style="display: none;">{{id}}</span>
+    <span id="userID" style="display: none;">{{user_id}}</span>
+    </li>
   {{else}}
-    <li class="list-group-item"><input type="checkbox" id="task">{{content}}<span id="idspan" style="display: none;">{{id}}</span></li>
+    <li class="list-group-item"><input type="checkbox" id="task">
+    {{content}}
+    <span id="idspan" style="display: none;">{{id}}</span>
+    <span id="userID" style="display: none;">{{user_id}}</span>
+    </li>
   {{/if}}
