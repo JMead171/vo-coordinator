@@ -4,6 +4,7 @@ const sequelize = require('../config/connection');
 const { User, Tasks, Messages, Responses, Calendar, Attendees } = require("../models");
 let messages = [];
 let users = [];
+let msgId = 0;
 
 router.get('/', async (req, res) => {
     try {
@@ -51,9 +52,10 @@ router.get('/', async (req, res) => {
 
 });
 
+
 router.get('/:id', async (req, res) => {
    
-
+    let msgId = req.params.id;
     try{
         if(!req.session.loggedIn){
             res.render('landing');
@@ -61,7 +63,7 @@ router.get('/:id', async (req, res) => {
 
         const messageData = await Messages.findOne({
             where: {
-                id: req.params.id
+                id: msgId
             },
             include: [ {model: Responses}]
         });

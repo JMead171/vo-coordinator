@@ -38,6 +38,25 @@ router.get('/:id', (req, res) => {
         });
 });
 
+router.get('/single/:id', (req, res) => {
+    Messages.findOne({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbPostData => {
+            if (!dbPostData) {
+                res.status(404).json({ message: 'No message found with this id' });
+                return;
+            }
+            res.json(dbPostData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 
 router.post('/', (req, res) => {
     Messages.create({

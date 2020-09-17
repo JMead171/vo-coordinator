@@ -6,7 +6,12 @@ async function messageDetails(event){
     //find the one clicked and get the data attribute so we can call a post.
     const message = event.target;
     const msg_id = message.getAttribute("data-message");
-
-    //console.log(msg_id); working
+    assign(msg_id);
+    
+    
     document.location.replace('/message-details/'+ msg_id, {loggedIn: true});
+}
+
+function assign (item){
+    localStorage.setItem("message", item);
 }
