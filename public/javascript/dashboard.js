@@ -8,5 +8,5 @@ async function messageDetails(event){
     const msg_id = message.getAttribute("data-message");
 
     //console.log(msg_id); working
-    document.location.replace('/message-details/', {msg_id, loggedIn: true})
-} 
+    document.location.replace('/message-details/'+ msg_id, {loggedIn: true});
+}
