@@ -10,11 +10,17 @@
                 {{> response content}}
             {{/each}}
         {{/if}}
-{{/if}}
+
 
 
 <div class="message-area">
     <label for="enter-message">Enter your message:</label>
-    <textarea name="message-body"></textarea>
-    <button class="btn-message" type="submit">Send message</button>
+    <textarea name="message-body" id="text-body"></textarea>
+    <button class="btn-message" type="submit" id="response-btn">Send message</button>
+    <button class="btn-message" type="button" id="delete-btn" style="background-color: var(--quinary-color);">Delete Message</button>
 </div>
+<script src="/javascript/message-details.js"></script>
+{{else}}
+<h2>Nothing to see here.</h2>
+{{/if}}
+ 

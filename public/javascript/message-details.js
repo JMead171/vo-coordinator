@@ -1,4 +1,4 @@
-
+console.log('message-details loaded')
 
 async function addResponse(){
  
@@ -61,13 +61,27 @@ async function addResponse(){
         console.log(err);
         res.status(500).JSON(err);
     }
-
-
-
-
-
 }
 
+async function deleteMessage(event){
+    let msg = localStorage.getItem("message");
 
+    try{
+        const results = await fetch('/api/messages/'+ msg, {
+            method: 'DELETE'
+        });
+
+        console.log(results);
+        if(results){
+            document.location.replace('/dashboard');
+        }
+    }
+    catch(err)
+    {
+        console.log(err);
+        res.status(500).json(err);
+    }
+}
+
+const deleter = document.getElementById('delete-btn').addEventListener('click', deleteMessage);
 const responseAdder = document.getElementById('response-btn').addEventListener('click', addResponse);
-
