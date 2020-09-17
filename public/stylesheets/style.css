@@ -128,7 +128,15 @@ header h1 {
     padding: 5% 35%;
   }
 
-  input {
+  .form-check-input {
+    width: 180%;
+    padding: 0;
+  }
+
+  .list-group-item {
+    padding: 5%;
+  }
+  .new-task {
     display: block;
     border: 1px solid var(--secondary-color);
     padding: 7px 15px;
@@ -308,7 +316,7 @@ footer h2 {
     color: white;
 }
 
-.row {
+.row,.message-area {
   background-image: url(../assets/images/Dashboard2.jpg);
   background-size: cover;
   min-height: 100%;
@@ -320,3 +328,19 @@ footer h2 {
   left: 0;
 }
 
+<<<<<<< HEAD
+h3 {
+  font-weight: bold;
+	font-size: 30px;
+	color: var(--primary-color);
+	margin: 0;
+	text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+kbd {
+  background-color: transparent;
+  color: black;
+  font-size: 10px;
+}
+=======
+>>>>>>> e502aaf2b1627f0eb0cd092a80c6e79cf7ceecdd
