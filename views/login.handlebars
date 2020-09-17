@@ -3,22 +3,21 @@
         {{!-- <form class="login-form" onsubmit="loginFormHandler()"> --}}
 
         <div id="user-login-fields">
-            <label for="user-login">Enter Username:</label>
+            <div>
+                <label for="user-login">Enter Username:</label>
+                <input type="text" placeholder="Username" id="user-login" />
             </div>
             <div>
-            <input type="text" placeholder="Username" id="user-login" />
+                <label for="password-login">Enter Password:</label>
+                <input type="password" placeholder="Password" id="password-login" />
             </div>
-        <div>
-            <label for="password-login">Enter Password:</label>
-            <input type="password" placeholder="Password" id="password-login" />
-        </div>
-        <div>
-            <button type="submit">Log in</button>
-        </div>
-        <div>
-            <button class="newUser" type="button">New User</button>
-        </div>
-
+            <div>
+                <button type="submit">Log in</button>
+            </div>
+            <div>
+                <button class="newUser" type="button">New User</button>
+            </div>
+        </div>            
     </form>
 </section>
 
