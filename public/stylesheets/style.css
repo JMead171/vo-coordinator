@@ -212,6 +212,7 @@ header h1 {
     background-color: var(--quaternary);
   }
 
+  /*
   #user-login-fields {
     display: flex;
     flex-direction: row;
@@ -222,7 +223,7 @@ header h1 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-  }
+  }*/
 
   .logout {
     color: var(--secondary);
@@ -304,7 +305,6 @@ footer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    position: fixed;
     bottom: 0;
 }
 
@@ -328,6 +328,7 @@ footer h2 {
   left: 0;
 }
 
+<<<<<<< HEAD
 h3 {
   font-weight: bold;
 	font-size: 30px;
@@ -341,3 +342,5 @@ kbd {
   color: black;
   font-size: 10px;
 }
+=======
+>>>>>>> e502aaf2b1627f0eb0cd092a80c6e79cf7ceecdd
