@@ -136,6 +136,17 @@ header h1 {
   .list-group-item {
     padding: 5%;
   }
+  input {
+    display: block;
+    border: 1px solid var(--secondary-color);
+    padding: 7px 15px;
+    font-size: 16px;
+    color: var(--secondary-color);
+    width: 60%;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color:white;
+  }
   .new-task {
     display: block;
     border: 1px solid var(--secondary-color);
@@ -212,7 +223,7 @@ header h1 {
     background-color: var(--quaternary);
   }
 
-  /*
+/*
   #user-login-fields {
     display: flex;
     flex-direction: row;
@@ -328,19 +339,3 @@ footer h2 {
   left: 0;
 }
 
-<<<<<<< HEAD
-h3 {
-  font-weight: bold;
-	font-size: 30px;
-	color: var(--primary-color);
-	margin: 0;
-	text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-kbd {
-  background-color: transparent;
-  color: black;
-  font-size: 10px;
-}
-=======
->>>>>>> e502aaf2b1627f0eb0cd092a80c6e79cf7ceecdd
