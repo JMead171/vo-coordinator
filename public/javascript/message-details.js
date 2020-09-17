@@ -85,4 +85,3 @@ async function deleteMessage(event){
 
 const deleter = document.getElementById('delete-btn').addEventListener('click', deleteMessage);
 const responseAdder = document.getElementById('response-btn').addEventListener('click', addResponse);
-
