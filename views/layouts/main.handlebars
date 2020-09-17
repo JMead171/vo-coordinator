@@ -23,9 +23,7 @@
         <nav>
             <ul>
 
-                <li>
-                    <a href="#contact-us">Contact Us</a>
-                </li>
+
                 {{#if loggedIn}}
                 <li>
                     <a href="/dashboard">Dashboard</a>
@@ -35,12 +33,16 @@
                 </li>
                 {{else}}
                 <li>
+                    <a href="#contact-us">Contact Us</a>
+                </li>
+                <li>
                     <a href="/login">Login</a>
                 </li>
-                {{/if}}
                 <li>
                     <a href="#request-demo">Request Demo</a>
                 </li>
+                {{/if}}
+
             </ul>
         </nav>
     </header>
