@@ -7,9 +7,10 @@ router.get('/', (req, res) => {
     Tasks.findAll({
         order: [['created_at', 'DESC']],
         // attributes: ['id', 'content', 'isComplete', 'user_id', 'created_at'],
-        include: [{ model: User, Messages, Responses, Calendar }]
+        //include: [{ model: User, Messages, Responses, Calendar }]
     })
-        .then(dbPostData => res.json(dbPostData))
+        .then(dbTaskData => res.json(dbTaskData))
+            console.log("Tasks: ", dbTaskData)
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

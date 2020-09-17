@@ -24,6 +24,7 @@ Messages.init(
                 model: 'user',
                 key: 'id'
             }
+
         },
         receiver_id: {
             type: DataTypes.INTEGER,
@@ -32,6 +33,7 @@ Messages.init(
                 model: 'user',
                 key: 'id'
             }
+
         }
 
     },

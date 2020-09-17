@@ -1,22 +1,22 @@
 {{!-- <div class="container col-sm-4 col-md-7 col-lg-4 mt-5"> --}}
 <div class="row">
 
-    <div class=" col task-list">
+    <div class="col add-task">
         <h3>Task List</h3>
+        
+        {{#if taskData.length}}
         <p> Check box if complete</p>
-        <ul class="list-group">
-            <li class="list-group-item"><input type="checkbox" id="task1">Task 1 goes here</li>
-            <li class="list-group-item"><input type="checkbox" id="task1">Task 2 goes here</li>
-            <li class="list-group-item"><input type="checkbox" id="task1">Task 3 goes here</li>
-            <li class="list-group-item"><input type="checkbox" id="task1">Task 4 goes here</li>
-            <li class="list-group-item"><input type="checkbox" id="task1">Task 5 goes here</li>
-            <li class="list-group-item"><input type="checkbox" id="task1">Task 6 goes here</li>
+        <ul class="list-group task-list">
+            {{#each taskData as |task|}}
+            {{> tasks task}}
+            {{/each}}
         </ul>
+        {{/if}}
         <label for="new-task">Enter a task:</label>
         <input type="text" id="newTask" />
-        <label for="employee-id">Enter employee ID:</label>
-        <input type="numeric" id="newTask" />
-        <button type="submit">Send Task</button>
+        <button type="submit">Add Task</button>
+        {{!-- <label for="employee-id">Enter employee ID:</label>
+        <input type="numeric" id="newTask" /> --}}
     </div>
 
     <div class="col-6 card">
@@ -111,20 +111,22 @@
 
     <div class="col message-list">
         <h3>Messages</h3>
+        {{#if messageData.length}}
         <ul class="list-group">
-            <li class="list-group-item">Joe</li>
-            <li class="list-group-item">Byran</li>
-            <li class="list-group-item">Kemar</li>
-            <li class="list-group-item">Alex</li>
+            {{#each messageData as |message|}}
+            {{> messages message}}
+            {{/each}}
         </ul>
+        {{/if}}
         <label for="enetr-message">Enter your message:</label>
         <textarea name="message-body"></textarea>
         <button type="submit">Send message</button>
     </div>
 
 </div>
-<!--<button name="jump" onclick="jump()">Go</button>-->
 <script src="/javascript/calendar.js"></script>
+<script src="/javascript/tasks.js"></script>
+
 
 <!-- Optional JavaScript for bootstrap -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
