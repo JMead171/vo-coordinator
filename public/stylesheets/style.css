@@ -45,7 +45,7 @@ header a {
 }
 
 header nav {
-  margin: 45px 50px;
+  margin: 15px 50px;
 }
 
 header nav ul {
@@ -65,7 +65,16 @@ header nav ul li a {
   border-radius: 15px;
 }
 
-header nav ul li a:hover {
+.btn-logout {
+  margin: 45px 20px 0 -15px;
+  background-color: var(--primary-color);
+  color: var(--secundary-color);
+  border-radius: 15px;
+  padding: 9px 15px;
+  border: none;
+}
+
+header nav ul li a:hover, .btn-logout:hover {
   background: var(--secundary-color);
   color: var(--primary-color);
   border-radius: 15px;
@@ -86,7 +95,7 @@ header h1 {
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
   width: 35%;
-  margin: 0% 3.5%;
+  margin: 5% 3.5%;
   padding: 25px 78px;
   font-size: x-large;
 }
@@ -134,15 +143,18 @@ header h1 {
   .login-form button {
     font-size: 16px;
     margin: 15px 0;
-    width: 100px;
+    width: 400px;
     text-align: center;
     border: none;
 	  padding: 7px 15px;
-	  border-radius: 10px;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: var(--secundary-color);
   }
 
   .login-form button:hover {
-    background-color: var(--secondary);
+    background-color: var(--secundary-color);
+    color: var(--primary-color);
   }
 
   .newuser-login {
@@ -154,14 +166,30 @@ header h1 {
   .newUser-login button {
     font-size: 20px;
     margin: 15px 0;
-    width: 300px;
+    width: 400px;
     text-align: center;
+    border: none;
+	  padding: 7px 15px;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: var(--secundary-color);
   }
 
-  .newUser-login button:hover {
-    background-color: var(--secondary);
+  .btn-task, .btn-message, .btn-adduser {
+    font-size: 20px;
+    margin: 15px 0;
+    width: 200px;
+    text-align: center;
+    border: none;
+	  padding: 7px 15px;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: var(--secundary-color);
   }
-
+  .newUser-login button:hover, .btn-task:hover, .btn-message:hover, .btn-adduser:hover {
+    background-color: var(--secundary-color);
+    color: var(--primary-color)
+  }
 
   .new-user {
     font-size: 20px;
@@ -231,7 +259,6 @@ header h1 {
     background-color: #fb9039;
   }
 
-
 .contact-title {
     font-size: 48px;
     border-bottom: 3px solid;
@@ -269,7 +296,7 @@ footer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    /* position: fixed; */
+    position: fixed;
     bottom: 0;
 }
 
@@ -282,6 +309,13 @@ footer h2 {
 }
 
 .row {
-  background-image: url(../assets/images/Dashboard.jpg);
+  background-image: url(../assets/images/Dashboard2.jpg);
   background-size: cover;
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 1;
+  left: 0;
 }
