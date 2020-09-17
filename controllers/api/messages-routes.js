@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
     Messages.findOne({
         where: {
-            id: req.params.id
+            receiver_id: req.params.id
         },
         //attributes: ['content', 'isComplete', 'user_id', 'created_at'],
         include: [{ model: User, Responses }]
