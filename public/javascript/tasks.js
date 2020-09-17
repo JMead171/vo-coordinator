@@ -2,10 +2,7 @@ async function addTaskHandler(event) {
     event.preventDefault();
 
     const content = document.querySelector('#newTask').value.trim();
-    //const userid = document.getElementById('userspan')
     const isComplete = false;
-
-    //console.log("Display fields:  " , content, "  :  " , userid)
 
     if (content) {
         const response = await fetch('/api/tasks', {
@@ -13,7 +10,6 @@ async function addTaskHandler(event) {
             body: JSON.stringify({
                 content,
                 isComplete
-                //userid
             }),
             headers: { 'Content-Type': 'application/json' }
         });
@@ -26,57 +22,60 @@ async function addTaskHandler(event) {
 }
 
 async function taskCompleteHandler(event) {
-    let checkBox = document.getElementById("task");
-    if (checkBox.checked  == true) {
-        event.preventDefault();
 
-        console.log("Update in task.js..........................................", );
-        //const content = document.querySelector('#newTask').value.trim();
-        //const userid = document.querySelector('#userspan');
-        const idstr = document.getElementById('idspan').innerHTML;
-        const id = parseInt(idstr);
-        const isComplete = true;
+    let allTasks = document.querySelectorAll("#task");
+    let taskArr = Array.from(allTasks)
 
-        //console.log("Display Content= " , content, "User id= " , userid, "ID= ", id)
+    for (let i = 0; i < allTasks.length; i++) {
+        if (taskArr[i].checked == true) {
+            event.preventDefault();
 
-        if (id) {
-            const response = await fetch(`/api/tasks/${id}`, {
-                method: 'put',
-                body: JSON.stringify({
-                isComplete
-            }),
-                headers: { 'Content-Type': 'application/json' }
-            });
-            console.log("did i make it here?...............................................................");
-            if (response.ok) {
-                //document.location.replace('/dashboard');
-            } else {
-                //document.location.replace('/dashboard');
+            const idstr = taskArr[i].nextElementSibling.innerHTML;
+            const id = parseInt(idstr);
+            const isComplete = true;
+
+            if (id) 
+                try {
+                const response = await fetch(`/api/tasks/${id}`, {
+                    method: 'put',
+                    body: JSON.stringify({
+                        isComplete
+                    }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+                }catch(err){
+                    console.log(err);
+                    res.status(500).json(err);
+                }
             }
         }
-    }
+    document.location.replace('/dashboard');
 }
 
 
 async function deleteTaskHandler(event) {
-    let checkBox = document.getElementById("task");
-    if(checkBox.checked == true) {
-        event.preventDefault();
+    let allTasks = document.querySelectorAll("#task");
+    let taskArr = Array.from(allTasks)
 
-        const idstr = document.getElementById('idspan').innerHTML;
+    for (let i = 0; i < allTasks.length; i++) {
+        if (taskArr[i].checked == true) {
+            event.preventDefault();
+    
+        const idstr = taskArr[i].nextElementSibling.innerHTML;
         const id = parseInt(idstr);
 
-        if (id) {
+        if (id) 
+            try {
             const response = await fetch(`/api/tasks/${id}`, {
                 method: 'DELETE'
             });
-            if (response.ok) {
-                document.location.replace('/dashboard');
-            } else {
-                document.location.replace('/dashboard');
+            }catch(err){
+                console.log(err);
+                res.status(500).json(err);
             }
         }
     }
+    document.location.replace('/dashboard');
 }
 
 
