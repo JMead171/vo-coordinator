@@ -9,8 +9,13 @@ const Attendees = require('./Attendees');
 User.hasMany(Messages); 
 Messages.belongsTo(User, {
     onDelete: 'CASCADE',
-    
+    foreignKey: 'sender_id'
 });
+
+Messages.belongsTo(User,{
+    onDelete: 'CASCADE',
+    foreignKey: 'receiver_id'
+})
 
 User.hasMany(Tasks);
 Tasks.belongsTo(User);
@@ -34,9 +39,12 @@ Responses.belongsTo(Messages, {
 Calendar.hasMany(Attendees, {
     onDelete: 'CASCADE',
     constraints: false,
-    foreignKeyConstraint: false
+    foreignKey: 'calendar_id',
+    
 })
-Attendees.belongsTo(Calendar);
+Attendees.belongsTo(Calendar, {
+    foreignKey: 'user_id'
+});
 
 
 

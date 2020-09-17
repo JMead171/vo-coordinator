@@ -13,11 +13,11 @@ Calendar.init(
             primaryKey: true,
             autoIncrement: true
         },
-        meeting: {
+        meeting: { //descritpion/title
             type: DataTypes.STRING,
             allowNull: false
         },
-        owner: {
+        owner: { //person hosting meeting
             type: DataTypes.INTEGER,
             references: 
             {

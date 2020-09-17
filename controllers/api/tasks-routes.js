@@ -6,11 +6,8 @@ const sequelize = require('../../config/connection');
 router.get('/', (req, res) => {
     Tasks.findAll({
         order: [['created_at', 'DESC']],
-        // attributes: ['id', 'content', 'isComplete', 'user_id', 'created_at'],
-        //include: [{ model: User, Messages, Responses, Calendar }]
     })
         .then(dbTaskData => res.json(dbTaskData))
-            console.log("Tasks: ", dbTaskData)
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -26,12 +23,12 @@ router.get('/:id', (req, res) => {
         //attributes: ['content', 'isComplete', 'user_id', 'created_at'],
         include: [{ model: User, Messages, Responses, Calendar }]
     })
-        .then(dbPostData => {
-            if (!dbPostData) {
+        .then(dbTaskData => {
+            if (!dbTaskData) {
                 res.status(404).json({ message: 'No task found with this id' });
                 return;
             }
-            res.json(dbPostData);
+            res.json(dbTaskData);
         })
         .catch(err => {
             console.log(err);
@@ -46,7 +43,7 @@ router.post('/', (req, res) => {
         isComplete: req.body.isComplete,
         user_id: req.session.user_id
     })
-        .then(dbPostData => res.json(dbPostData))
+        .then(dbTaskData => res.json(dbTaskData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -67,12 +64,12 @@ router.put('/:id', (req, res) => {
             }
         }
     )
-        .then(dbPostData => {
-            if (!dbPostData) {
+        .then(dbTaskData => {
+            if (!dbTaskData) {
                 res.status(404).json({ message: 'No task found with this id' });
                 return;
             }
-            res.json(dbPostData);
+            res.json(dbTaskData);
         })
         .catch(err => {
             console.log(err);
@@ -81,17 +78,18 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
+    console.log("Destroy:.........", req.params.id);
     Tasks.destroy({
         where: {
             id: req.params.id
         }
     })
-        .then(dbPostData => {
-            if (!dbPostData) {
+        .then(dbTaskData => {
+            if (!dbTaskData) {
                 res.status(404).json({ message: 'No task found with this id' });
                 return;
             }
-            res.json(dbPostData);
+            res.json(dbTaskData);
         })
         .catch(err => {
             console.log(err);

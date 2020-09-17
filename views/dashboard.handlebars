@@ -1,8 +1,9 @@
 {{!-- <div class="container col-sm-4 col-md-7 col-lg-4 mt-5"> --}}
 <div class="row">
 
-    <div class="col add-task">
+    <div class="col">
         <h3>Task List</h3>
+
         
         {{#if taskData.length}}
         <p> Check box if complete</p>
@@ -14,7 +15,12 @@
         {{/if}}
         <label for="new-task">Enter a task:</label>
         <input type="text" id="newTask" />
-        <button class="btn-task" type="submit">Add Task</button>
+
+        <button class="add-task btn-task" type="submit">Add Task</button>
+        <br>
+        <p>Check box to complete or delete</p>
+        <button class="mark-complete btn-task" type="submit">Mark Complete</button>
+        <button class="delete-task btn-task" type="submit">Delete Task</button>
         {{!-- <label for="employee-id">Enter employee ID:</label>
         <input type="numeric" id="newTask" /> --}}
     </div>
@@ -118,17 +124,14 @@
     </div>
 
     <div class="col message-list">
-        <h3>Messages</h3>
+        <h3><a href="/message-details">Messages</a> </h3>
         {{#if messageData.length}}
-        <ul class="list-group">
+        <ul class="list-group" id="messages">
             {{#each messageData as |message|}}
             {{> messages message}}
             {{/each}}
         </ul>
         {{/if}}
-        <label for="enetr-message">Enter your message:</label>
-        <textarea name="message-body"></textarea>
-        <button class="btn-message" type="submit">Send message</button>
     </div>
 
 </div>
@@ -147,3 +150,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
     integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
     crossorigin="anonymous"></script>
+    
+    {{#if messageData.length}}
+    <script src="/javascript/dashboard.js"></script>
+    {{/if}}
