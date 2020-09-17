@@ -21,35 +21,30 @@ router.get('/', async (req, res) => {
           attributes: ['id', 'content', 'isComplete', 'user_id'],
         }]
     });
-
+    
+    if(dbData){
     userData = dbData.map(data => data.get({ plain: true }));
     taskData = userData[0].tasks;
     console.log("Data: ", taskData);
-    console.log("Task Data: ", taskData[0].content);
+    // console.log("Task Data: ", taskData[0].content);
+    }
 
-    const results = await Messages.findAll({
+    const msgData = await Messages.findAll({
       order: [['created_at', 'DESC']],
       where: {
         receiver_id: req.session.user_id
-      },
-      include: [{
-        model: Responses,
-        attributes : ['content', 'sender_id', 'receiver_id', 'message_id'],
-      }]
+      }
     });
 
-    if(!results){
-      res.status(404).json({message: 'no user found'})
-      return
+    if(msgData){
+      messageData = msgData.map(data => data.get({plain: true}));
+      console.log("Messages", messageData);
     }
 
-    console.log(results);
-    messageData = results.map(data => data.get({plain: true}));
-    responseData = messageData[0].responses;
-    console.log("Messages", messageData);
-    console.log("Responses", responseData);
+    console.log('tasks: ', taskData.length);
+    console.log('messages: ', messageData.length);
 
-    res.render('dashboard', { userData, taskData, messageData, loggedIn: true });
+    res.render('dashboard', { taskData, messageData, loggedIn: true });
 
   }
   catch(err){
