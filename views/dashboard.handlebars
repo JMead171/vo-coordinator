@@ -3,13 +3,16 @@
 
     <div class="col">
         <h3>Task List</h3>
-        <p> Check box if complete</p>
         <ul class="list-group task-list">
             {{> tasks taskData}}
         </ul>
         <label for="new-task">Enter a task:</label>
         <input type="text" id="newTask" />
         <button class="add-task" type="submit">Add Task</button>
+        <br>
+        <p>Check box to complete or delete</p>
+        <button class="mark-complete" type="submit">Mark Complete</button>
+        <button class="delete-task" type="submit">Delete Task</button>
         {{!-- <label for="employee-id">Enter employee ID:</label>
         <input type="numeric" id="newTask" /> --}}
     </div>

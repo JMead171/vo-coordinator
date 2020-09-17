@@ -6,11 +6,8 @@ const sequelize = require('../../config/connection');
 router.get('/', (req, res) => {
     Tasks.findAll({
         order: [['created_at', 'DESC']],
-        // attributes: ['id', 'content', 'isComplete', 'user_id', 'created_at'],
-        //include: [{ model: User, Messages, Responses, Calendar }]
     })
         .then(dbTaskData => res.json(dbTaskData))
-            console.log("Tasks: ", dbTaskData)
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -81,6 +78,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
+    console.log("Destroy:.........", req.params.id);
     Tasks.destroy({
         where: {
             id: req.params.id
