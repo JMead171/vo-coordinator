@@ -110,17 +110,15 @@
     </div>
 
     <div class="col message-list">
-        <h3>Messages</h3>
+        <h3><a href="/message-details">Messages</a> </h3>
         {{#if messageData.length}}
-        <ul class="list-group">
+        <ul class="list-group" id="messages">
             {{#each messageData as |message|}}
             {{> messages message}}
             {{/each}}
         </ul>
         {{/if}}
-        <label for="enetr-message">Enter your message:</label>
-        <textarea name="message-body"></textarea>
-        <button type="submit">Send message</button>
+
     </div>
 
 </div>
@@ -139,3 +137,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
     integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
     crossorigin="anonymous"></script>
+    
+    {{#if messageData.length}}
+    <script src="/javascript/dashboard.js"></script>
+    {{/if}}

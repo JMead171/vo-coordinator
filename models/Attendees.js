@@ -13,7 +13,7 @@ Attendees.init(
             primaryKey: true,
             autoIncrement: true
         },
-        user_id: {
+        user_id: { //this is the person attending
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
@@ -21,7 +21,7 @@ Attendees.init(
                 key: 'id'
             }
         },
-        calendar_id: {
+        calendar_id: { //this is the meeting they are going to
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
