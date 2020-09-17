@@ -52,10 +52,38 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
+   
+
+    try{
+        if(!req.session.loggedIn){
+            res.render('landing');
+        }
+
+        const messageData = await Messages.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [ {model: Responses}]
+        });
+
+        
+
+        if(messageData){
+            
+            messages = messageData.get({plain: true});
+            console.log(messages);
+        }
+
+        res.render('message-details', {messages, loggedIn: true});
+
+    }
+    catch(err){
+        console.log(err);
+        res.status(500).json(err);
+    }
 
 
-
-    res.render('message-details');
+    
 });
 
 
