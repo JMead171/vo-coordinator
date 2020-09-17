@@ -297,7 +297,6 @@ footer {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    position: fixed;
     bottom: 0;
 }
 
@@ -321,96 +320,3 @@ footer h2 {
   left: 0;
 }
 
-/*/* 2.4 - MEDIA QUERIES FOR TABLETS DOWN TO PHONES */
-@media screen and (max-width: 768px) {
-
-  section {
-    padding: 30px 15px;
-  }
-
-  .checkbox label, .radio label {
-    margin: 24px;
-  }
-  
-  .section-title {
-    width: 100%;
-  }
-
-  .step h3 {
-    flex: 1 100%;
-    text-align: center
-  }
-
-  .step-info {
-    flex: 2 100%;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .step-img {
-    flex: 0 32%;
-    margin-right: 0;
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-
-  .step-text {
-    flex: 100%;  
-  }
-
-  .trainer-img h3, .trainer-img h4, .trainer-img::after {
-    display: none;
-  }
-
-  .trainer-bio h3, .trainer-bio h4 {
-    display: block;
-  }
-
-  .service-grid-container {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .service-grid-item.basic {
-    grid-column: 1;
-  }
-
-  .service-grid-item.both {
-    grid-column: 1 / -1;
-  }
-
-  .service-grid-item.cancel {
-    transform: none;
-    writing-mode: unset;
-    grid-column: 1 / -1;
-    grid-row: -1;
-  }
-
-}
-
-/* 2.4 - MEDIA QUERIES FOR PHONE */
-@media screen and (max-width: 575px) {
-  
-  .hero-form button {
-    width: 100%;
-  }
-
-  .section-title {
-    width: 95%;
-  }
-
-  .intro p {
-    width: 100%;
-  }
-
-  .trainer {
-    flex: 0 100%;
-  }
-
-  .contact-info > * {
-    flex: 0 100%;
-  }
-
-  .contact-form {
-    order: 3;
-  }
-}
