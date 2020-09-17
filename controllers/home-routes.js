@@ -3,7 +3,11 @@ const sequelize = require('../config/connection');
 const { User } = require('../models');
 
 router.get('/', (req, res) => {
+  if(req.session.loggedIn){
+    res.render('landing', {loggedIn: true})
+  }else{
     res.render('landing');
+  }
 });
 
 router.get('/newuser', (req,res) => {
