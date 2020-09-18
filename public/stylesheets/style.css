@@ -149,14 +149,17 @@ header h1 {
   }
   .new-task {
     display: block;
-    border: 1px solid var(--secondary-color);
+    border: 1px solid var(--primary-color);
     padding: 7px 15px;
     font-size: 16px;
-    color: var(--secondary-color);
-    width: 60%;
+    /* color: var(--secondary-color); */
+    width: 70%;
     margin-bottom: 15px;
     border-radius: 10px;
     background-color:white;
+  }
+  .ck-instr {
+    margin-bottom: 0;
   }
 
   .login-form button {
@@ -213,7 +216,7 @@ header h1 {
   .new-user {
     font-size: 20px;
     margin: 15px 0;
-    background-color: var(--tertiary);
+    background-color:#bce1fc;
     color: var(--quaternary);
     width: 100px;
     text-align: center;
@@ -223,18 +226,10 @@ header h1 {
     background-color: var(--quaternary);
   }
 
-/*
-  #user-login-fields {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
 
-  #newUser-login-fields {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }*/
+  .ent-msg {
+    width: 100%;
+  }
 
   .logout {
     color: var(--secondary);
