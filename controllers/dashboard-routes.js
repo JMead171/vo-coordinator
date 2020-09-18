@@ -6,11 +6,17 @@ let userData = [];
 let taskData = [];
 let messageData = [];
 let meetingData = [];
+let nameData = [];
 
 
 //Remove this later - if NO DATA on Tasks or Mesages or anything we need to error check, trying to display breaks page.
 router.get('/', async (req, res) => {
+  if(!req.session.loggedIn){
+    res.render('/landing');
+  }
+
   try{
+    //start by getting tasks for the User
     const dbData = await User.findAll({
       where: {
         id: req.session.user_id
@@ -28,6 +34,7 @@ router.get('/', async (req, res) => {
     console.log("Data: ", taskData);
     }
 
+    //Get message data
     const msgData = await Messages.findAll({
       order: [['created_at', 'DESC']],
       where: {
@@ -55,8 +62,15 @@ router.get('/', async (req, res) => {
       console.table(meetingData);
     }
 
+    const namesData = await User.findAll({
+      attributes: ['id', 'first_name', 'last_name']
+    });
 
-    res.render('dashboard', { userData, taskData, messageData, meetingData, loggedIn: true });
+    nameData = namesData.map(data => data.get({plain: true}));
+    // console.log(namesData);
+    console.log(nameData);
+
+    res.render('dashboard', { userData, taskData, messageData, meetingData, nameData, loggedIn: true });
 
   }
   catch(err){

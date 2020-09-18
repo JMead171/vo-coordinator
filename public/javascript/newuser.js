@@ -8,7 +8,24 @@ async function addUserHandler(event) {
     const title = document.querySelector('#user-title').value.trim();
     const username = document.querySelector('#user-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
-    const isManager = false;
+    let isManager = false;
+
+    //lets the first person to signup be the manager. 
+    try{
+        let count = await fetch('/api/users', {
+            method: 'GET'
+        });
+        let test = await count.text();
+        let hope = JSON.parse(test);
+        console.log(hope);
+        if(!hope.length){
+            console.log('no one here');
+            isManager = true;
+        }
+    }catch(err){
+        console.log(err);
+    }
+
 
     if (first_name && last_name && phone && email && title && username && password) {
         const response = await fetch('/api/users', {
@@ -26,7 +43,7 @@ async function addUserHandler(event) {
             headers: { 'Content-Type': 'application/json' }
         });
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/dashboard', {loggedIn: true});
         } else {
             document.location.replace('/newuser');
         }
