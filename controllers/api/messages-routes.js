@@ -61,7 +61,7 @@ router.get('/single/:id', (req, res) => {
 router.post('/', (req, res) => {
     Messages.create({
         content: req.body.content,
-        sender_id: req.body.sender_id,
+        sender_id: req.session.user_id,
         receiver_id: req.body.receiver_id
     })
         .then(dbPostData => res.json(dbPostData))
