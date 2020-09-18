@@ -3,17 +3,15 @@
 
     <div class="col">
         <h3>Task List</h3>
-
-
         {{#if taskData.length}}
-        <kbd>
+        {{!-- <kbd>
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-exclamation-circle" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                 <path
                     d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
-            </svg>
-        </kbd>
+            </svg> --}}
+        {{!-- </kbd> --}}
         <ul class="list-group task-list">
             {{#each taskData as |task|}}
             {{> tasks task}}
@@ -25,15 +23,17 @@
 
         <button class="add-task btn-task" type="submit" id="addTask">Add Task</button>
         <br>
-        <kbd>
+        {{!-- <kbd>
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-exclamation-circle" fill="currentColor"
                 xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                 <path
                     d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z" />
             </svg>
-            Check box to complete or delete
-        </kbd>
+            Check box to complete or delete --}}
+        {{!-- </kbd> --}}
+        <br>
+        <p class='ck-instr'>Check box to complete or delete</p>
         <button class="mark-complete btn-task" type="submit" id="markComplete">Mark Complete</button>
         <button class="delete-task btn-task" type="submit" id="deleteTask">Delete Task</button>
         {{!-- <label for="employee-id">Enter employee ID:</label>
@@ -153,6 +153,7 @@
         {{/if}}
 
         {{#if nameData.length}}
+        <br>
             <label for="cars">Send message to:</label>
             <select name="names" id="names">
                 {{#each nameData as |name|}}
@@ -161,7 +162,7 @@
             </select>
         {{/if}}
 
-        <label for="enter-message">Enter your message:</label>
+        <label class='ent-msg' for="enter-message">Enter your message:</label>
         <textarea name="message-body" id="message-body"></textarea>
         <button class="btn-message" type="submit" id="sendMessage">Send message</button>
     </div>
