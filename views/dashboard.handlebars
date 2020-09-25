@@ -140,6 +140,22 @@
                 <option value=2029>2029</option>
                 <option value=2030>2030</option>
             </select></form>
+        <br>   
+        <div class='meetings'>    
+            <div class='meeting-list'>
+                <p>Upcoming Meetings</p>
+                {{#each calendarMeet as |meet|}}
+                {{> calendarmeetings meet}}
+                {{/each}}
+            </div>
+            <div class='add-meeting'>
+                <label for="meeting-date">Add Meeting Date:</label>
+                <input class="new-meeting" type="date" id="meet-date" />
+                <label for="meeting-title">Add Meeting Title:</label>
+                <input class="new-meeting" type="text" id="meet-title" />
+                <button class="add-meet btn-task" type="submit" id="addMeet">Add Meeting</button>
+            </div> 
+        </div>   
     </div>
 
     <div class="col message-list">
