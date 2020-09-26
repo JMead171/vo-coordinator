@@ -274,6 +274,39 @@ header h1 {
     background-color: #fb9039;
   }
 
+  .meetings {
+    display: inherit;
+  }
+
+  .meeting-list {
+    margin: 10px;
+    color: black;
+    display: inline-block;
+    width: 300px;
+    font-size: 14px;
+  }
+
+  .add-meeting {
+    margin: 10px 0;
+    color: black;
+    width: 300px;
+    display: inline-block;
+    font-size: 14px;
+  }
+
+  .add-meeting input{
+    width: 100%;
+    padding: 0;
+    margin: 5px 0;
+    border: 1px solid var(--primary-color)
+  }
+
+  .add-meeting button{
+    margin: 5px 0;
+    width: 100%;
+  }
+
+
 .contact-title {
     font-size: 48px;
     border-bottom: 3px solid;

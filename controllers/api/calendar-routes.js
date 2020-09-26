@@ -63,20 +63,22 @@ router.post('/', async (req, res) => {
         console.log(err);
         res.status(400).json(err);
     }
-
-    // Calendar.create({
-    //     meeting: req.body.meeting,
-    //     owner: req.body.owner,
-    //     date: req.body.date
-
-    
-    // })
-    //     .then(dbPostData => res.json(dbPostData))
-    //     .catch(err => {
-    //         console.log(err);
-    //         res.status(500).json(err);
-    //     });
 });
+
+// Add meeting to calendar
+router.post('/addmeet', async (req, res) => {
+    console.log("Add meeting..............................................")
+    Calendar.create({
+        meeting: req.body.meeting,
+        owner: req.session.user_id,
+        date: req.body.date    
+    })
+    .then(dbCalData => res.json(dbCalData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+}); 
 
 
 router.put('/:id', (req, res) => {

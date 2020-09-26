@@ -79,3 +79,42 @@ function showCalendar(month, year) {
     }
 
 }
+
+async function addMeetHandler(event) {
+    event.preventDefault();
+
+    const meeting = document.querySelector('#meet-title').value.trim();
+    const date = document.querySelector('#meet-date').value
+    console.log("Date: " , date, meeting);
+
+    if (meeting && date) {
+        const response = await fetch('/api/calendar/addmeet', {
+            method: 'post',
+            body: JSON.stringify({
+                meeting,
+                date
+            }),
+            headers: { 'Content-Type': 'application/json' }
+        });
+        if (response.ok) {
+            document.location.replace('/dashboard');
+        } else {
+            document.location.replace('/dashboard');
+        }
+    }
+}
+
+
+//console.log("Update calednar with a color backgrond:..................", calendarMeet)
+
+document.querySelector('.add-meet').addEventListener('click', addMeetHandler);
+
+
+
+// document.querySelector('#calendar-body').addEventListener('click', event => {
+//     let testDate = event.target.textContent
+//     let testMonth = selectMonth.value +1
+//     console.log("Date:............................:" ,testDate, testMonth, selectMonth.value);
+//     event.target.className="bg-warning"
+//     event.target.innerHTML=testDate
+//   })

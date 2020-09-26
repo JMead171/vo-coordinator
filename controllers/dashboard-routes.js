@@ -7,6 +7,7 @@ let taskData = [];
 let messageData = [];
 let meetingData = [];
 let nameData = [];
+let calendarMeet;
 
 
 //Remove this later - if NO DATA on Tasks or Mesages or anything we need to error check, trying to display breaks page.
@@ -70,7 +71,18 @@ router.get('/', async (req, res) => {
     // console.log(namesData);
     console.log(nameData);
 
-    res.render('dashboard', { userData, taskData, messageData, meetingData, nameData, loggedIn: true });
+    const monthlyCalendar = await Calendar.findAll({
+      order: [['date', 'ASC']],
+      where: {
+        owner: req.session.user_id
+      }
+    });
+
+    calendarMeet = monthlyCalendar.map(data => data.get({plain: true}));
+    // Need to convert date here (Jeff)
+    console.log("Calendar: ",  calendarMeet);
+ 
+    res.render('dashboard', { userData, taskData, messageData, meetingData, nameData, calendarMeet, loggedIn: true });
 
   }
   catch(err){
